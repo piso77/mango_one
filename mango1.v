@@ -1,8 +1,3 @@
-
-`include "hvsync_generator.v"
-`include "cpu6502.v"
-`include "font_cp437_8x8.v"
-
 /**
 Mango One
 
