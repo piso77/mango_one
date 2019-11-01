@@ -72,16 +72,17 @@ module signetics_term(clk, reset, hpos, vpos, tready, dot, te, ti);
       end
     end
 
-  // character generator from ROM
-  font_cp437_8x8 tile_rom(
-    .addr(char_addr),
-    .data(char_data)
-  );
   wire [9:0] nt_addr = {vpos[7:3], hpos[7:3]};
   wire [7:0] cur_char = dshift[nt_addr + scroll];
   wire [10:0] char_addr = {cur_char, vpos[2:0]};
   wire [7:0] char_data;
   wire dot = char_data[~hpos[2:0]]; // video output
+
+  // character generator from ROM
+  font_cp437_8x8 tile_rom(
+    .addr(char_addr),
+    .data(char_data)
+  );
   
   // terminal ready output
   // only possible at end of line, if not scrolling
