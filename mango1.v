@@ -46,7 +46,7 @@ module signetics_term(clk, reset, hpos, vpos, tready, dot, te, ti);
   output tready;	// terminal ready
   output dot;		// terminal video output
   
-  reg [7:0] dshift[1024]; // frame buffer offset
+  reg [7:0] dshift[0:1023]; // frame buffer offset
   reg [9:0] dofs;	// current offset to write
   reg [9:0] scroll;	// scroll offset
   reg [9:0] scnt;	// row clear counter when scrolling
