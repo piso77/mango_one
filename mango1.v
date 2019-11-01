@@ -88,7 +88,7 @@ module signetics_term(clk, reset, hpos, vpos, tready, dot, te, ti);
   // only possible at end of line, if not scrolling
   assign tready = !reset && !te && scnt == 0 && hpos == 256;
   
-  initial begin
+  initial begin: clear_buffer
     integer i;
     for (i=0; i<1024; i=i+1) dshift[i] = 0; // clear buffer
   end
