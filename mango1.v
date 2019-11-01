@@ -169,9 +169,13 @@ module apple1_top(clk, reset, hsync, vsync, rgb, keycode, keystrobe);
   wire tready; // terminal ready
   wire dot; // dot output
   wire te = WE && AB == 16'hd012; // terminal enable (write)
-  signetics_term terminal(clk, reset, hpos, vpos,
-                          tready, dot,
-                          te, .ti(DO & 8'h7f));
+  signetics_term terminal(
+	.clk(clk),
+	.reset(reset),
+	.hpos(hpos), .vpos(vpos),
+	.tready(tready), .dot(dot),
+	.te(te), .ti(DO & 8'h7f)
+  );
   
   wire r = display_on && 0;
   wire g = display_on && dot;
