@@ -353,7 +353,7 @@ always @*
  */
 always @(posedge clk) 
     if( RDY )
-      PC <= PC_temp + 16'(PC_inc);
+      PC <= PC_temp + {15'b0, PC_inc};
 
 /*
  * Address Generator 
