@@ -1313,8 +1313,8 @@ wire temp_HC = temp_l[4] | HC9;
 // perform the addition as 2 separate nibble, so we get
 // access to the half carry flag
 always @* begin
-  temp_l = temp_logic[3:0] + temp_BI[3:0] + 5'(adder_CI);
-  temp_h = temp_logic[8:4] + temp_BI[7:4] + 5'(temp_HC);
+  temp_l = temp_logic[3:0] + temp_BI[3:0] + {4'b0, adder_CI};
+  temp_h = temp_logic[8:4] + temp_BI[7:4] + {4'b0, temp_HC};
 end
 
 // calculate the flags 
