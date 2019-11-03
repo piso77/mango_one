@@ -107,7 +107,7 @@ module apple1_top(clk, reset, hsync, vsync, rgb, keycode, keystrobe);
   wire [8:0] vpos;
 
   wire [15:0] AB;   	// address bus
-  wire [7:0] DI;        // data in, read bus
+  reg [7:0] DI;        // data in, read bus
   wire [7:0] DO;        // data out, write bus
   wire WE;              // write enable
   wire IRQ=0;           // interrupt request
