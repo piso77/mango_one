@@ -1352,15 +1352,7 @@ wire RDY=1;              // Ready signal. Pauses CPU when RDY=0
     end
   
   reg [7:0] rom[0:15];
-  initial begin
-    rom = '{
-      8'ha0, 8'h13,
-      8'h88, 8'hd0,
-      8'hfd, 0,
-      0, 0, 0, 0,
-      0, 0, 0, 0,
-      0, 0
-    };
-  end
+  initial
+	$readmemh("cpu6502_test.bin", rom);
   
 endmodule
