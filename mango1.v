@@ -149,8 +149,8 @@ module apple1_top(clk, reset, hsync, vsync, rgb, keycode, keystrobe);
       endcase
     end
 
-  reg [7:0] ram[4096];		// 1K of RAM
-  reg [7:0] monitor_rom[256];	// WozMon ROM
+  reg [7:0] ram[0:4095];		// 1K of RAM
+  reg [7:0] monitor_rom[0:255];	// WozMon ROM
 
   initial begin
     $readmemh("mango1.hex", monitor_rom);
